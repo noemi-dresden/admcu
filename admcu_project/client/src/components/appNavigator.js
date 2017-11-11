@@ -1,11 +1,12 @@
 import { DrawerNavigator, StackNavigator, TabNavigator } from 'react-navigation';
 
-
 import StartScreen from './tandem/start';
 import OtherScreen from './tandem/other';
+import CardScreen from './tandem/card';
 
-
-const AppNavigator = TabNavigator({
+const AppNavigator = StackNavigator({
+  tab: {
+    screen: TabNavigator({
             Start: {screen: StartScreen},
             Other: {screen: OtherScreen}
           },{
@@ -21,14 +22,16 @@ const AppNavigator = TabNavigator({
             activeTintColor: '#6a1b9a',
             inactiveTintColor:'#757575',
              labelStyle: {
-                fontSize: 9,
+                fontSize: 6,
               },
             },
             tabBarPosition: 'bottom',
             swipeEnabled: false,
             animationEnabled: false
+          })
+    },
+    card: {screen: CardScreen},
 });
-   
 
 
 export default AppNavigator;
