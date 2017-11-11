@@ -31,11 +31,11 @@ The client is written in react-native
 
 #### Server
 
-1. How to use Resolver and Schema : [Apollo Doc](https://www.apollographql.com/docs/graphql-tools/resolvers.html)
-2. GraphiQl: [Apollo Doc] (https://www.apollographql.com/docs/apollo-server/graphiql.html)
+1. How to use Resolver and Schema [Apollo Doc](https://www.apollographql.com/docs/graphql-tools/resolvers.html)
+2. GraphiQl [Apollo Doc](https://www.apollographql.com/docs/apollo-server/graphiql.html)
 3. Authentication ideas
 * [Medium tutorials](https://medium.com/handlebar-labs/graphql-authentication-with-react-native-apollo-part-1-2-9613aacd80b3)
-* [How to graphQl] (https://www.howtographql.com/graphql-js/5-authentication/)
+* [How to graphQl](https://www.howtographql.com/graphql-js/5-authentication/)
 #### MongoDB
 1. Installation [Mongo Doc](https://docs.mongodb.com/manual/installation/)
 2. About Mongoose Queries [Mongoose Doc](http://mongoosejs.com/docs/queries.html)
@@ -45,5 +45,5 @@ The client is written in react-native
 2. Connect with Server [Apollo Doc](https://www.apollographql.com/docs/react/basics/queries.html)
 3. Card package [AirBnB](https://www.apollographql.com/docs/react/basics/queries.html)
 4. Components from [Native Base](https://docs.nativebase.io/Components.html#Components)
-5. Components from [React-native] (https://facebook.github.io/react-native/docs/components-and-apis.html)
+5. Components from [React-native](https://facebook.github.io/react-native/docs/components-and-apis.html)
 
