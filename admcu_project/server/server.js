@@ -2,6 +2,10 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import { graphqlExpress } from 'apollo-server-express';
+import { graphiqlExpress } from 'apollo-server-express';
+//import './src/config/database/db'; //decomment if database is on
+
+import schema from './src/graphQl/schema/index';
 
 
 const PORT = 4000; 
@@ -22,6 +26,11 @@ server.use(bodyParser.json());
 server.use(bodyParser.urlencoded({ extended: true }));
 server.use(cookieParser());
 
-// server.use('/graphql', bodyParser.json(), graphqlExpress({ schema: myGraphQLSchema }));
+server.use('/graphiql', graphiqlExpress({
+  endpointURL: '/graphql',
+}));
+
+server.use('/graphql', bodyParser.json(), graphqlExpress({ schema: schema }));
+
 
 server.listen(PORT, () => console.log(`Server is now running on http://localhost:${PORT}`));
