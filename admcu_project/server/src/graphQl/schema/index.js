@@ -8,7 +8,7 @@ import Tandem from './tandem';
 const RootQuery = `
   type RootQuery{
     user(id: String): User
-    tandems(latitude: Float, longitude: Float) : [Tandem]
+    tandems(latitude: Float, longitude: Float, offer: String, search: String) : [Tandem]
   }
 `;
 

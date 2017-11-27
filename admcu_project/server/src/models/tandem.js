@@ -4,14 +4,14 @@ var Schema = mongoose.Schema;
 var ObjectId = mongoose.Types.ObjectId();
 
 var Tandem = new Schema({
-   user: {type: Schema.Types.ObjectId},
+   user: String,
    languages: {
         offer: [String],
-        receive: [String]
+        search: [String]
    },
    location: {
-       latitude: String,
-       longitude: String
+    type: [Number], 
+    index: '2d'
    }
 });
 

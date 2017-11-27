@@ -3,17 +3,12 @@ type Tandem {
     id: ID!
     user: String!
     languages : Language
-    location : Location
+    location : [Float]
 }
 
 type Language{
     offer: [String]
-    receive: [String]
-}
-
-type Location{
-    latitude: String
-    longitude: String
+    search: [String]
 }
 `;
 export default Tandem;
