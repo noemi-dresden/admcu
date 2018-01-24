@@ -1,14 +1,24 @@
 import { DrawerNavigator, StackNavigator, TabNavigator } from 'react-navigation';
 
 import ListScreen from './tandem/list';
-import OtherScreen from './tandem/other';
+import StartScreen from './tandem/start'; 
 import CardScreen from './tandem/card';
+import TandemScreen from './tandem/tandem';
+
+import Register from './tandem/register';
+import LoginNew from './tandem/login_new';
+import MenuScreen from  './tandem/menu';
+
 
 const AppNavigator = StackNavigator({
   tab: {
     screen: TabNavigator({
-            Start: {screen: ListScreen},
-            Other: {screen: OtherScreen}
+            //Start: {screen: ListScreen},
+            Start: {screen: StartScreen},
+            Tandem: {screen: TandemScreen},
+            LoginNew: { screen: LoginNew, navigationOptions: { headerTitle: 'Login' } },
+            Register: { screen: Register, navigationOptions: { headerTitle: 'Register' } },
+            MenuScreen: { screen: MenuScreen, navigationOptions: { headerTitle: 'Start your search for tandems!' } }
           },{
             tabBarOptions:{
               style:{

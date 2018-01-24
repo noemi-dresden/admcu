@@ -2,6 +2,7 @@ const Tandem = `
 type Tandem {
     id: ID!
     user: String!
+    image: String,
     languages : Language
     location : [Float]
 }

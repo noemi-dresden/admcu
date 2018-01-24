@@ -1,8 +1,10 @@
 const User = `
 type User {
-    id: ID!
-    username: String!
+    id: String! 
+    username: String
     password: String
+    email: String
+    jwt: String
 }
 `;
 export default User;

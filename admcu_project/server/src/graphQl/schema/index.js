@@ -8,13 +8,16 @@ import Tandem from './tandem';
 const RootQuery = `
   type RootQuery{
     user(id: String): User
-    tandems(latitude: Float, longitude: Float, offer: String, search: String) : [Tandem]
+    tandems(latitude: Float, longitude: Float, offer: String, search: String, limit: Int, skip: Int) : [Tandem]
+    allTandems : [Tandem]
+    matches(offer: String, search: String) : [Tandem]
   }
 `;
 
 const RootMutation = `
 type RootMutation{
-  setUser(name: String, password: String): User
+  login(email: String!, password: String!): User
+  signup(username: String!, email: String!, password: String!): User
 }
 `;
 

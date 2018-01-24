@@ -5,6 +5,7 @@ var ObjectId = mongoose.Types.ObjectId();
 
 var Tandem = new Schema({
    user: String,
+   image: String,
    languages: {
         offer: [String],
         search: [String]
