@@ -35,3 +35,45 @@ server.use('/graphql', bodyParser.json(), graphqlExpress({ schema: schema }));
 
 
 server.listen(PORT, () => console.log(`Server is now running on http://localhost:${PORT}`));
+
+
+//jwt delovi izvadeni
+const getUser = async (authorization, secrets, mongo) => {
+  const bearerLength = "Bearer ".length;
+  if (authorization && authorization.length > bearerLength) {
+    const token = authorization.slice(bearerLength);
+    const { ok, result } = await new Promise(resolve =>
+   
+          resolve({
+            ok: true,
+            result
+          })
+        
+      )
+    
+    
+    if (ok) {
+      const user = await mongo.collection('users').findOne({ _id: ObjectId(result._id) });
+      return user;
+    } else {
+      console.error(result);
+      return null;
+    }
+  }
+  
+  return null;
+};
+
+export async function context(headers, secrets) {
+  if (!mongo) {
+    mongo = await MongoClient.connect(secrets.MONGO_URL);
+  }
+  const user = await getUser(headers['authorization'], secrets, mongo);
+  
+  return {
+    headers,
+    secrets,
+    mongo,
+    user,
+  };
+};

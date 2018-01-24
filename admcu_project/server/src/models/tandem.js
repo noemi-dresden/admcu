@@ -8,10 +8,6 @@ var Tandem = new Schema({
    languages: {
         offer: [String],
         search: [String]
-   },
-   location: {
-    type: [Number], 
-    index: '2d'
    }
 });
 

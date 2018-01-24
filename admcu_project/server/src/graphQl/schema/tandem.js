@@ -3,7 +3,7 @@ type Tandem {
     id: ID!
     user: String!
     languages : Language
-    location : [Float]
+
 }
 
 type Language{

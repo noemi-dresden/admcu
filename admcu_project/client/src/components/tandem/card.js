@@ -1,7 +1,8 @@
 import React , { Component } from 'react';
-import {Image, StyleSheet, View} from 'react-native';
+import {Image, StyleSheet, View, Alert} from 'react-native';
 import { Container, Content, ListItem, Text, CheckBox, Header, Left, Icon, Title,Button, Body, StyleProvider} from 'native-base';
 import MapView from 'react-native-maps';
+import {NetInfo} from 'react-native';
 
 // shall be get from server
 let coordinates = [
@@ -64,6 +65,46 @@ export default class CardScreen extends Component {
  render() {
      const { navigate } = this.props.navigation;
      const { region } = this.props;
+
+
+     NetInfo.isConnected.fetch().then(isConnected => {
+      console.log('First, is ' + (isConnected ? 'online' : 'offline'));
+
+      if(isConnected == 'online')
+      console.log('is connected is online! smenigo! ')
+    });
+
+    function handleFirstConnectivityChange(isConnected) {
+      console.log('Then, is ' + (isConnected ? 'online' : 'offline'));
+
+      if((isConnected ? 'online' : 'offline') == 'offline'){
+
+          Alert.alert(
+            'Action not possible',
+            'You are offline ',
+            [
+              {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
+              {text: 'Return to the Matches Overview list', onPress: () =>  navigate('MenuScreen')},
+            ],
+            { cancelable: false }
+          )
+        }
+
+      NetInfo.isConnected.removeEventListener(
+        'connectionChange',
+        handleFirstConnectivityChange
+      );
+    }
+
+   
+
+    NetInfo.isConnected.addEventListener(
+      'connectionChange',
+      handleFirstConnectivityChange
+    );
+
+
+
 
       return (
         <View style ={styles.container}>
