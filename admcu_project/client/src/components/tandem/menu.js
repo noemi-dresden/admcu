@@ -17,10 +17,6 @@ class MenuScreen extends Component {
  constructor(props){
       super(props);
       this.state = {
-        //email : this.props.screenProps.email
-        // when we are really doing it for the current user we will use this field
-        //username: ljupka'
-
       }
 }
 

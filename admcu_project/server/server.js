@@ -5,7 +5,6 @@ import { graphqlExpress } from 'apollo-server-express';
 import { graphiqlExpress } from 'apollo-server-express';
 import './src/config/database/db';
 import './src/config/dummyData';
-
 import schema from './src/graphQl/schema/index';
 
 

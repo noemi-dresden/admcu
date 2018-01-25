@@ -8,7 +8,7 @@ import {Image, View, StyleSheet, TextInput,Text, CheckBox, Header,TouchableOpaci
 //http://192.168.178.21
 const Constants = {
     client : new ApolloClient({
-        link: new HttpLink({ uri: 'http://172.16.136.191:4000/graphql' }),
+        link: new HttpLink({ uri: 'http://192.168.0.7:4000/graphql' }),
         cache: new InMemoryCache({
           dataIdFromObject: object => object.id,
         }),

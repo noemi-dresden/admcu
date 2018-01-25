@@ -10,7 +10,7 @@ const tandemResolvers = {
                 "languages.search": search,
                 "location": {
                     $near: [latitude, longitude],
-                    $maxDistance: 1
+                    $maxDistance: 6
                 }
             }).limit(limit).skip(skip).exec((err, tandems) => {
                 if(err) console.log(err)

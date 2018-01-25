@@ -1,6 +1,6 @@
 import React , { Component } from 'react';
 import {NetInfo , Image, StyleSheet, View, Picker} from 'react-native';
-import { Container, Content, ListItem, Text, CheckBox, Header, Left, Icon, Title,Button, Body, StyleProvider} from 'native-base';
+import { Container, Content, ListItem, Text, CheckBox, Header, Left,Card, CardItem, Icon, Title,Button, Body, StyleProvider} from 'native-base';
 
 
 export default class StartScreen extends Component {
@@ -10,7 +10,7 @@ export default class StartScreen extends Component {
       this.state = {
         userPosition: null,
         lastPosition: null,
-        connection: null,
+        connectionType: null,
         language_offer: "english",
         language_search: "french"
       }
@@ -56,35 +56,58 @@ export default class StartScreen extends Component {
      const { navigate } = this.props.navigation;
      return (
       <Content style={{backgroundColor:'white'}}>
-      <Text>You can offer </Text>
-       <Picker
-       selectedValue={this.state.language_offer}
-       onValueChange={language_offer => this.setState({ language_offer })}
-       style={{ width: 160 }}
-       mode="dropdown">
-       <Picker.Item label="german" value="german" />
-       <Picker.Item label="arabic" value="arabic" />
-       <Picker.Item label="spanish" value="spanish" />
-       <Picker.Item label="english" value="english" />
-       <Picker.Item label="french" value="french" />
-        </Picker>
-        <Text>You want to learn </Text>
-       <Picker
-       selectedValue={this.state.language_search}
-       onValueChange={language_search => this.setState({ language_search })}
-       style={{ width: 160 }}
-       mode="dropdown">
-       <Picker.Item label="german" value="german" />
-       <Picker.Item label="arabic" value="arabic" />
-       <Picker.Item label="spanish" value="spanish" />
-       <Picker.Item label="english" value="english" />
-        </Picker>
-        
-       <Button onPress={() =>
-           navigate('Tandem', {latitude: this.state.userPosition.latitude, longitude: this.state.userPosition.longitude, offer: this.state.language_offer, search: this.state.language_search})         
-         }>
-            <Text>search </Text>
-          </Button>
+      
+          <Card>
+            <CardItem key={0}>
+              <Body>
+              <Text>You can offer </Text>
+              <Picker
+              selectedValue={this.state.language_offer}
+              onValueChange={language_offer => this.setState({ language_offer })}
+              style={{ width: 160 }}
+              mode="dropdown">
+              <Picker.Item label="german" value="german" />
+              <Picker.Item label="arabic" value="arabic" />
+              <Picker.Item label="spanish" value="spanish" />
+              <Picker.Item label="english" value="english" />
+              <Picker.Item label="french" value="french" />
+               </Picker>
+              </Body>
+            </CardItem>
+            <CardItem key={1}>
+              <Body>
+              <Text>You want to learn </Text>
+              <Picker
+              selectedValue={this.state.language_search}
+              onValueChange={language_search => this.setState({ language_search })}
+              style={{ width: 160 }}
+              mode="dropdown">
+              <Picker.Item label="german" value="german" />
+              <Picker.Item label="arabic" value="arabic" />
+              <Picker.Item label="spanish" value="spanish" />
+              <Picker.Item label="english" value="english" />
+               </Picker>
+              </Body>
+            </CardItem>
+            <CardItem key={2}>
+              <Body>
+              {this.state.connectionType == '4g' ? (
+                <Button onPress={() =>
+                  navigate('Tandem', {latitude: this.state.userPosition.latitude, longitude: this.state.userPosition.longitude, offer: this.state.language_offer, search: this.state.language_search})         
+                 }>
+                   <Text>search </Text>
+                 </Button>
+              ) : (
+                <Button onPress={() =>
+                  navigate('card', {latitude: this.state.userPosition.latitude, longitude: this.state.userPosition.longitude, offer: this.state.language_offer, search: this.state.language_search})         
+                 }>
+                   <Text>search </Text>
+                 </Button>
+              )}
+              </Body>
+            </CardItem>
+          </Card>
+          
        </Content>
       );
     }
